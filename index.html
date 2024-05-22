@@ -29,10 +29,18 @@
         </div>
     </header>
     <main>
-        <div class="main-container" id="app">
+        <div class="main-container" id="app" v-cloak>
             <ul>
-                <li v-for="(item,index) in list">
-                    <span :class="{done: list[index].done}">{{ list[index].text }}</span>
+                <li class="item" v-for="(item,index) in list">
+                    <div class="col-10">
+                        <input :id=`check${index}` type="checkbox" v-model="list[index].done">
+                    </div>
+                    <div class="col-100">
+                        <label :for=`check${index}` :class="{done: list[index].done}">{{ list[index].text }}</label>
+                    </div>
+                    <div class="col-10">
+                        <i class="fas fa-xmark" @click="list.splice(index, 1)"></i>
+                    </div>
                 </li>
             </ul>
         </div>
