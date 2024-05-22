@@ -38,7 +38,7 @@
                     <i class="fas fa-plus" @click="addNewItem()"></i>
                 </div>
             </div>
-            <div class="main-container" :class="{marginTop: !viewNewItem}">
+            <div class="main-container" :class="{marginTop: !viewNewItem, invisible: !list.length}">
                 <ul>
                     <li class="item" v-for="(item,index) in list">
                         <div class="col-10">
