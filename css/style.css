@@ -8,5 +8,147 @@
 }
 
 /* -------------
-  MOBILE FIRST
+     LAYOUT
 ------------- */
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* -------------
+     HEADER
+------------- */
+
+header {
+    background-color: indianred;
+    position: fixed;
+    height: 90px;
+    line-height: 90px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+header i {
+    font-size: 40px;
+    color: white;
+}
+
+.header-container {
+    max-width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.logo {
+    line-height: 110px;
+}
+
+.menu .only-mobile {
+    filter: invert(100%);
+    font-size: 2rem;
+}
+
+.menu .only-desktop ul {
+    display: flex;
+    list-style: none;
+}
+
+.menu .only-desktop li {
+    padding-left: 20px;
+}
+
+.menu .only-desktop a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+    background-color: lightgrey;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.only-desktop {
+    display: none;
+}
+
+/* -------------
+      BODY
+------------- */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: blanchedalmond;
+}
+
+.main-container {
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 1200px;
+    width: 80%;
+    height: 90%;
+    text-align: center;
+    background-color: lightsalmon;
+    border-radius: 20px;
+    padding: 40px 60px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+ul {
+    text-align: start;
+    /* margin-left: 50px; */
+}
+
+.main-container ul li {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.done {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+
+
+
+/*--- DESKTOP ---*/
+@media screen and (min-width: 992px) {
+
+    /* DEBUG */
+    .debug header::after {
+        content: 'DESKTOP';
+    }
+
+    /*----------
+       LAYOUT 
+    ----------*/
+    .container {
+        max-width: 960px;
+    }
+
+    /*----------
+       HEADER 
+    ----------*/
+    .only-mobile {
+        display: none;
+    }
+
+    .only-desktop {
+        display: block;
+    }
+
+    .header-container {
+        justify-content: space-between;
+    }
+}

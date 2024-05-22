@@ -5,11 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <script src="https://kit.fontawesome.com/7711c3f1fc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
+    <header>
+        <div class="header-container">
+            <div class="logo only-desktop">
+                <i class="fas fa-list-check"></i>
+            </div>
+            <div class="menu">
+                <div class="only-mobile">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="only-desktop">
+                    <ul>
+                        <li><a href="">Aggiungi</a></li>
+                        <li><a href="">Impostazioni</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main-container" id="app">
+            <ul>
+                <li v-for="(item,index) in list">
+                    <span :class="{done: list[index].done}">{{ list[index].text }}</span>
+                </li>
+            </ul>
+        </div>
+    </main>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="js/main.js"></script>
 </body>
