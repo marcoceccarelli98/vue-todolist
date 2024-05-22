@@ -8,6 +8,19 @@
 }
 
 /* -------------
+     COLORS
+------------- */
+
+:root {
+    --bg-header: rgb(0, 123, 255);
+    --bg-body: white;
+    --bg-container: rgb(0, 123, 255);
+    --bg-item: white;
+    --bg-add-item: rgb(228, 228, 228);
+    --bg-add-button: white;
+}
+
+/* -------------
      LAYOUT
 ------------- */
 
@@ -52,12 +65,16 @@
     rotate: 180deg;
 }
 
+.padding-left {
+    padding-left: 10px;
+}
+
 /* -------------
      HEADER
 ------------- */
 
 header {
-    background-color: indianred;
+    background-color: var(--bg-header);
     position: fixed;
     height: 90px;
     line-height: 110px;
@@ -100,33 +117,24 @@ header button {
     padding-left: 20px;
 }
 
-.menu .only-desktop a {
-    font-size: 2rem;
-    text-decoration: none;
-    color: black;
-    background-color: lightgrey;
-    padding: 10px;
-    border-radius: 5px;
-}
-
 /* -------------
       BODY
 ------------- */
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: blanchedalmond;
+    background-color: var(--bg-body);
     user-select: none;
 }
 
 .main-container {
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 30px;
     max-width: 1200px;
     width: 80%;
     height: 90%;
     text-align: center;
-    background-color: lightsalmon;
+    background-color: var(--bg-container);
     border-radius: 20px;
     padding: 20px 20px;
 }
@@ -144,12 +152,12 @@ ul {
 }
 
 .main-container ul li {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 600;
     margin: 20px 0;
-    background-color: lightgray;
-    padding: 5px;
-    border-radius: 5px;
+    background-color: var(--bg-item);
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .item {
@@ -164,6 +172,10 @@ ul {
     float: right;
     font-size: 30px;
     top: 25%;
+    color: black;
+}
+
+.item i:hover {
     color: red;
 }
 
@@ -175,7 +187,7 @@ ul {
 /* NEW ITEM */
 
 .marginTop {
-    margin-top: 100px;
+    margin-top: 130px;
 }
 
 .new-item {
@@ -184,21 +196,21 @@ ul {
     padding: 20px;
     width: 80%;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 130px;
     border-radius: 20px;
-    background-color: lightgray;
+    background-color: var(--bg-add-item);
 }
 
 .new-item input {
-    /* width: 65%; */
+    padding-left: 15px;
     width: 90%;
     height: 50px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .new-item i {
     font-size: 35px;
-    background-color: white;
+    background-color: var(--bg-add-button);
     border-radius: 50%;
     padding: 10px 13px;
 }

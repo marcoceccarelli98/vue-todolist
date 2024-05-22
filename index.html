@@ -32,7 +32,7 @@
         <main>
             <div class="new-item" :class="{invisible: !viewNewItem, dFlex: viewNewItem}">
                 <div class="col-100">
-                    <input type="text" @keyup.enter="addNewItem()" v-model="newItemText">
+                    <input type="text" placeholder="Add new item" @keyup.enter="addNewItem()" v-model="newItemText">
                 </div>
                 <div class="col-20">
                     <i class="fas fa-plus" @click="addNewItem()"></i>
@@ -44,7 +44,7 @@
                         <div class="col-10">
                             <input :id=`check${index}` type="checkbox" v-model="list[index].done">
                         </div>
-                        <div class="col-100">
+                        <div class="col-100 padding-left">
                             <label :for=`check${index}` :class="{done: list[index].done}">{{ list[index].text }}</label>
                         </div>
                         <div class="col-10">
