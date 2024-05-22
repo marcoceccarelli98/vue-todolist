@@ -10,41 +10,51 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo only-desktop">
-                <i class="fas fa-list-check"></i>
-            </div>
-            <div class="menu">
-                <div class="only-mobile">
-                    <i class="fas fa-bars"></i>
+    <div id="app" v-cloak>
+        <header>
+            <div class="header-container">
+                <div class="logo only-desktop">
+                    <i class="fas fa-list-check"></i>
                 </div>
-                <div class="only-desktop">
-                    <ul>
-                        <li><a href="">Aggiungi</a></li>
-                        <li><a href="">Impostazioni</a></li>
-                    </ul>
+                <div class="menu">
+                    <div class="only-mobile">
+                        <i class="fa-solid fa-angle-up" :class="{flip: !viewNewItem}" @click="toggleView()"></i>
+                    </div>
+                    <div class="only-desktop">
+                        <ul>
+                            <li><i class="fa-solid fa-angle-up" :class="{flip: !viewNewItem}" @click="toggleView()"></i>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <main>
-        <div class="main-container" id="app" v-cloak>
-            <ul>
-                <li class="item" v-for="(item,index) in list">
-                    <div class="col-10">
-                        <input :id=`check${index}` type="checkbox" v-model="list[index].done">
-                    </div>
-                    <div class="col-100">
-                        <label :for=`check${index}` :class="{done: list[index].done}">{{ list[index].text }}</label>
-                    </div>
-                    <div class="col-10">
-                        <i class="fas fa-xmark" @click="list.splice(index, 1)"></i>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </main>
+        </header>
+        <main>
+            <div class="new-item" :class="{invisible: !viewNewItem, dFlex: viewNewItem}">
+                <div class="col-100">
+                    <input type="text" @keyup.enter="addNewItem()" v-model="newItemText">
+                </div>
+                <div class="col-20">
+                    <i class="fas fa-plus" @click="addNewItem()"></i>
+                </div>
+            </div>
+            <div class="main-container" :class="{marginTop: !viewNewItem}">
+                <ul>
+                    <li class="item" v-for="(item,index) in list">
+                        <div class="col-10">
+                            <input :id=`check${index}` type="checkbox" v-model="list[index].done">
+                        </div>
+                        <div class="col-100">
+                            <label :for=`check${index}` :class="{done: list[index].done}">{{ list[index].text }}</label>
+                        </div>
+                        <div class="col-10">
+                            <i class="fas fa-xmark" @click="list.splice(index, 1)"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="js/main.js"></script>
 </body>

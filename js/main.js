@@ -23,10 +23,21 @@ createApp({
                     done: false,
                 },
             ],
+            viewNewItem: false,
+            newItemText: '',
         }
     },
 
     methods: {
+        toggleView() {
+            this.viewNewItem = !this.viewNewItem;
+        },
+        addNewItem() {
+            if (this.newItemText != '') {
+                this.list.push({ text: this.newItemText, done: false });
+                this.newItemText = '';
+            }
+        }
 
     }
 }).mount('#app');
